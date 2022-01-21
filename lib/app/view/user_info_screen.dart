@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:githubsearch/app/controller/home_page_controller.dart';
+import 'package:githubsearch/app/controller/app_controller.dart';
 import 'package:githubsearch/app/model/user_model.dart';
 import 'package:githubsearch/app/view/followers_or_following_screen.dart';
 
 class UserInfoScreen extends StatelessWidget {
   final String username;
-  final _controller = HomePageController();
+  final _controller = AppController();
   UserInfoScreen({
     required this.username,
     Key? key,
@@ -71,6 +71,13 @@ class UserInfoScreen extends StatelessWidget {
                         label: Text('${snapshot.data!.following} Following'),
                       ),
                     ],
+                  ),
+                  TextButton(
+                    child: const Text('Open on github'),
+                    onPressed: () {
+                      _controller.openBrowserTab(
+                          link: 'http://github.com/$username');
+                    },
                   )
                 ],
               );

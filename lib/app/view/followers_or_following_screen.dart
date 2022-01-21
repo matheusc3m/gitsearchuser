@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:githubsearch/app/controller/home_page_controller.dart';
+import 'package:githubsearch/app/controller/app_controller.dart';
 import 'package:githubsearch/app/model/user_model.dart';
 import 'package:githubsearch/app/view/shared/custom_card_widget.dart';
 import 'package:githubsearch/app/view/user_info_screen.dart';
@@ -7,7 +7,7 @@ import 'package:githubsearch/app/view/user_info_screen.dart';
 class FollowersOrFollowingScreen extends StatelessWidget {
   String username;
   bool isFollowing;
-  final _controller = HomePageController();
+  final _controller = AppController();
   FollowersOrFollowingScreen({
     Key? key,
     required this.username,
@@ -42,7 +42,8 @@ class FollowersOrFollowingScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (_) => UserInfoScreen(
-                            username: snapshot.data![index]!.username),
+                          username: snapshot.data![index]!.username,
+                        ),
                       ),
                     );
                   },
