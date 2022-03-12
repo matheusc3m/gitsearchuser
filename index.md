@@ -1,4 +1,4 @@
-## Git Search User
+## About
 
 It is a project where the github api is consumed and used to search for users
 
